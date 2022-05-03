@@ -1,0 +1,66 @@
+body{
+    position: relative;
+}
+
+#panel{
+    margin: 0px 0px 10px 0px;
+}
+
+#canvasBlock{
+    float: left;
+    margin: 0px;
+    border: 10px;
+    border-style: solid;
+}
+
+.banner{
+    float: left;
+    margin: 0px 0px 0px 10px;
+}
+
+.left{
+    float: left;
+    width: 150px;
+    margin: 0px 5px 0px 0px;
+}
+
+.right{
+    float: left;
+    width: 150px;
+    margin: 0px;
+}
+
+ul{
+    margin: 0px;
+}
+
+ul li{
+    list-style: none;
+    padding: 5px 0px;
+    margin: 0px;
+}
+
+img{
+    margin: 0px;
+    width: 150px; 
+    height: 150px;
+}
+
+.btns{
+    float: left;
+    margin-top: 20px;
+    text-align: center;
+}
+
+button{
+    width: 100px;
+    line-height: 38px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    text-shadow:1px 1px 1px #333;
+    border-radius: 5px;
+    margin:0 10px 10px 0;
+    position: relative;
+    overflow: hidden;
+}
