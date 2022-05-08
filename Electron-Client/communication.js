@@ -1,11 +1,10 @@
 const { net } = require('electron')
 
 
-
-function send_Json_to_Server(event,arg){
+function send_Json_to_Server_ver1(event,arg){
     //console.log( JSON.stringify({"text":arg})) // print 图像json,  
     var postData = JSON.stringify({"text":arg});
-    const request = net.request({
+    const request1 = net.request({
         method: 'POST',
         protocol: 'http:',
         hostname: '110.40.209.218',
@@ -17,7 +16,7 @@ function send_Json_to_Server(event,arg){
         }
     });
     
-    request.on('response',(response)=>{  //监听响应
+    request1.on('response',(response)=>{  //监听响应
         console.log("Status Code:" + response.statusCode);  //返回状态码
         response.on('data',(chuck)=>{  //获取返回数据
             //写Recieve.json
@@ -35,8 +34,10 @@ function send_Json_to_Server(event,arg){
         })
         //监听结束
     })
-    request.write(postData);
-    request.end();
+    request1.write(postData);
+    request1.end();
 }
 
-module.exports = send_Json_to_Server;
+
+
+module.exports = send_Json_to_Server_ver1;

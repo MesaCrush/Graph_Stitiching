@@ -6,7 +6,7 @@ function activate_python(){
     var path = require('path');
     var pypath = path.join(__dirname,'python/test-client.py')
     const spawn = require('child_process').spawn;
-    const py = spawn('python3', [pypath]);
+    const py = spawn('python', [pypath]);
     let output = "";
     py.stdout.on("data", (data) => {
         output += data.toString();
@@ -27,11 +27,8 @@ function save_strokes(){
     });
 }
 
-function activate_button(){
-    var b1 = document.getElementById("b1");
-    appConsole.log("init");
-    b1.onclick = function(){
-        appConsole.log("click");
+function sentinfo(ver){
+    appConsole.log("click");
         save_strokes()
         ipcRenderer.on('main-msg', (event, arg) => {
             appConsole.log("返回数据",arg) // prints 数据
@@ -47,6 +44,21 @@ function activate_button(){
             }
             
         })
-        ipcRenderer.send('renderer-msg', strokes)
-    }
+        var info = {"txt":strokes,"ver":ver};
+        if (ver == 2){
+            //handle none selected needed !!!!!!
+            info["select_x"] = x_start;
+            info["select_y"] = y_start;
+            info["select_x_dist"] = x_end-x_start;
+            info["select_y_dist"] = y_end-y_start;
+        }
+        ipcRenderer.send('renderer-msg', JSON.stringify(info))
+}
+
+function activate_send(){
+    var b4 = document.getElementById("b4");
+    var b3 = document.getElementById("b3");
+    appConsole.log("connect ready to used");
+    b4.onclick = function(){sentinfo(1)}
+    b3.onclick = function(){sentinfo(2)}
 }
