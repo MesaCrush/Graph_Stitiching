@@ -16,7 +16,11 @@ const windowToCanvas = (canvas, x, y) => {
     }
 }
 
-function redraw(){
+function redraw(edit=0){
+    if (edit == -1){
+        strokes.pop()
+    }
+
     for (let i = 0, len = strokes.length; i < len; i++) {
         a_stroke = strokes[i];
         context.moveTo(a_stroke[0][0] * 2,a_stroke[0][1] * 2)

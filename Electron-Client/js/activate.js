@@ -15,6 +15,11 @@ function activate_button(){
         activate_canvas();
         activate_select();
     }
+    var b5 = document.getElementById("b5");
+    b5.onclick = function(){
+        theCanvas.height = theCanvas.height;
+        redraw(-1);
+    }
 }
 
 
