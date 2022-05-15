@@ -1,5 +1,5 @@
 const { app, BrowserWindow,ipcMain } = require('electron')
-const send_Json_to_Server_ver1 = require('./communication')
+const send_Json_to_Server_ver1 = require('./send_Json_ver1')
 const send_Json_to_Server_ver2 = require('./send_Json_ver2')
 
 //生成主屏幕
@@ -34,8 +34,8 @@ ipcMain.on('renderer-msg', (event, arg) => {
     }
     else if (arg["ver"] == 1){
         console.log("ver1 active");
-        console.log(arg["txt"]);
-        send_Json_to_Server_ver1(event,arg["txt"]);
+        console.log(arg["text"]);
+        send_Json_to_Server_ver1(event,arg["text"]);
     }
     else{
         console.log("ver2 active");

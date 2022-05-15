@@ -9,7 +9,7 @@ def textSplit(text):
    temparr = text.split("]], [[")
    temparr = [item.split("], [")for item in temparr]
    resarr = []
-   print(temparr)
+   #print(temparr)
    for arr in temparr:
       newarr = []
       for item in arr:
@@ -54,6 +54,9 @@ def main():
    image1 =  (json.loads(lines[0]))["text"]
 
    raw_drawing = textSplit(image1.strip("\n"))
+   data = json.dumps({'text': raw_drawing})
+   with open('Json/Recieve.json', 'w') as outfile:
+      outfile.write(data)
    print(raw_drawing)
    #Display origin image 1
    pil_img1 = Image.new("RGB", (240, 270), (255,255,255))

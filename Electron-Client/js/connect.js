@@ -44,13 +44,23 @@ function sentinfo(ver){
             }
             
         })
-        var info = {"txt":strokes,"ver":ver};
+        var info = {"text":strokes,"ver":ver};
         if (ver == 2){
             //handle none selected needed !!!!!!
-            info["select_x"] = x_start;
-            info["select_y"] = y_start;
-            info["select_x_dist"] = x_end-x_start;
-            info["select_y_dist"] = y_end-y_start;
+            if (x_start > x_end){
+                var x_temp = x_start;
+                x_start = x_end;
+                x_end = x_temp;
+            }
+            if (y_start > y_end){
+                var y_temp = y_start;
+                y_start = y_end;
+                y_end = y_temp;
+            }
+            info["select_x"] = x_start/2;
+            info["select_y"] = y_start/2;
+            info["select_x_dist"] = (x_end-x_start)/2;
+            info["select_y_dist"] = (y_end-y_start)/2;
         }
         ipcRenderer.send('renderer-msg', JSON.stringify(info))
 }

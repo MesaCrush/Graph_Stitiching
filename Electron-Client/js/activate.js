@@ -31,4 +31,5 @@ window.onload=function(){
     activate_select();
     activate_button();
     activate_send();
+    activate_imgdraw()
 }
