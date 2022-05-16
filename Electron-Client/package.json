@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "packager": "electron-packager . GraphS_mac --out=./macver --app-version=0.01 --overwrite"
+    "packager": "electron-packager . GraphS_win --out=./winver --app-version=1.01 --overwrite"
   },
   "author": "",
   "license": "ISC",
