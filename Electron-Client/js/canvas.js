@@ -3,6 +3,7 @@ const { app } = require('electron');
 var appConsole = new nodeConsole.Console(process.stdout, process.stderr);
 const strokes = [];
 const selected_line = [];
+var color = "red";
 isAllowDraw = true;
 
 
@@ -22,7 +23,10 @@ function redraw(edit=0){
     }
 
     for (let i = 0, len = strokes.length; i < len; i++) {
-        a_stroke = strokes[i];
+        a_stroke = strokes[i]
+        if (a_stroke.length == 0){
+            continue;
+        }
         context.moveTo(a_stroke[0][0] * 2,a_stroke[0][1] * 2)
         for (let j = 1, len = a_stroke.length; j < len; j++){
             context.lineTo(a_stroke[j][0] * 2, a_stroke[j][1] * 2);
@@ -47,6 +51,8 @@ function activate_canvas(){
     let nextstroke = []
     if (isAllowDraw){
         theCanvas.onmousedown = function(e) {
+            context.strokeStyle = color;
+            appConsole.log(color)
             isAllowDrawLine = true
             let ele = windowToCanvas(theCanvas, e.clientX, e.clientY)
             let { x, y } = ele
@@ -56,6 +62,7 @@ function activate_canvas(){
                 if (isAllowDrawLine) {
                     let ele = windowToCanvas(theCanvas, e.clientX, e.clientY)
                     let { x, y } = ele
+                    
                     context.lineTo(x, y)
                     nextstroke.push([x/2,y/2]) 
                     context.stroke()

@@ -1,7 +1,7 @@
 
 const { ipcRenderer } = require('electron');
 
-function activate_python(){
+function activate_python_main(){
     //调用python
     var path = require('path');
     var pypath = path.join(__dirname,'python/test-client.py')
@@ -40,7 +40,7 @@ function sentinfo(ver){
             }
             else{
                 document.getElementById("notification").innerHTML="Successfully generated, Wait for 1 sec and Command + R to show"
-                activate_python()
+                activate_python_main()
             }
             
         })

@@ -26,7 +26,7 @@ def textSplit(text):
 
 
 
-def draw(image,canvas,p1):
+def draw(image,canvas,p1,number):
 
    for polyline in p1:
       newline = [tuple(item) for item in polyline]
@@ -38,7 +38,7 @@ def draw(image,canvas,p1):
          
 
    image.resize((255,255))  # 设置缩略图大小
-   image.save(os.path.dirname(os.path.realpath(__file__)) + '/../images/img1.jpg')
+   image.save(os.path.dirname(os.path.realpath(__file__)) + '/../images/img' + str(number) +'.jpg')
    
    # display image
    #image.show()
@@ -51,18 +51,30 @@ def main():
    
 
    #initial picture
-   image1 =  (json.loads(lines[0]))["text"]
+   images =  (json.loads(lines[0]))["text"]
+   images = images.strip("\n").split("+")
+   images_processed = {}
+   type_processed = {}
+   for i in range(0,len(images)-2,2):
+      the_key = "img" + str(i//2+1)
+      images_processed[the_key] = textSplit(images[i+1])
+      type_processed[the_key] = images[i]
 
-   raw_drawing = textSplit(image1.strip("\n"))
-   data = json.dumps({'text': raw_drawing})
+   data_draw = json.dumps(images_processed)
+   data_type = json.dumps(type_processed)
    with open('Json/Recieve.json', 'w') as outfile:
-      outfile.write(data)
-   print(raw_drawing)
+      outfile.write(data_draw)
+   with open('Json/Recieve_type.json', 'w') as outfile:
+      outfile.write(data_type)
    #Display origin image 1
-   pil_img1 = Image.new("RGB", (240, 270), (255,255,255))
-   cav1 = ImageDraw.Draw(pil_img1)
+   keys = list(images_processed.keys())
+   for i in range(1,len(keys)+1):
+      pil_img1 = Image.new("RGB", (240, 270), (255,255,255))
+      cav1 = ImageDraw.Draw(pil_img1)
+      draw(pil_img1,cav1,images_processed[keys[i-1]],i)
+   
    # original graph 1
-   draw(pil_img1,cav1,raw_drawing)
+   
    
 
 main()

@@ -6,8 +6,8 @@ const send_Json_to_Server_ver2 = require('./send_Json_ver2')
 let win  = null;
 const createWindow = () => {
     const win = new BrowserWindow({
-      width: 1000,
-      height: 800,
+      width: 1200,
+      height: 750,
       webPreferences: { // 允许使用node
         nodeIntegration: true, 
         contextIsolation: false  

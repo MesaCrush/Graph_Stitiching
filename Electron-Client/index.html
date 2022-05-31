@@ -1,70 +1,78 @@
 <html>
 
-<head>
-  <meta charset="UTF-8">
-  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-  <title>Canvas</title>
-  <link rel="stylesheet" href="./css/index.css">
-  <script src="js/canvas.js"></script>
-  <script src="js/connect.js"></script>
-  <script src="js/select.js"></script>
-  <script src="js/drawimg.js"></script>
-  <script src="js/activate.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Canvas</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="js/canvas.js"></script>
+    <script src="js/connect.js"></script>
+    <script src="js/select.js"></script>
+    <script src="js/drawimg.js"></script>
+    <script src="js/save.js"></script>
+    <script src="js/activate.js"></script>
+  </head>
 
 <body>
-  <div id = "panel">
-    <div id = "canvasBlock">
-      <canvas id="theCanvas" width="510" height="510"></canvas>
+    <div class="w">
+
+      <div class="banner">
+        <canvas id="theCanvas" width="510" height="510"></canvas>
+
+        <div class="dropdown">
+          <button class="dropbtn">Color</button>
+          <div class="dropdown-content">
+            <button id = "black">black</button>
+            <button id = "red">red</button>
+            <button id = "green">green</button>
+          </div>
+        </div>
+
+        <div class="left" id="leftimg">
+          
+              <img src="./images/img4.jpg" alt="" width="150px" height="150px" id="img4">
+              <p id = 'img4_p'>img4</p>
+            
+              <img src="./images/img5.jpg" alt="" width="150px" height="150px" id="img5">
+              <p id = 'img5_p'>img5</p>
+          
+              <img src="./images/img6.jpg" alt="" width="150px" height="150px" id="img6">
+              <p id = 'img6_p'>img6</p>
+
+        </div>
+
+        <div class="right"  id="rightimg">
+        
+              <img src="./images/img1.jpg" alt="" width="150px" height="150px" id="img1">
+              <p id = 'img1_p'>img1</p>
+          
+              <img src="./images/img2.jpg" alt="" width="150px" height="150px" id="img2">
+              <p id = 'img2_p'>img2</p>
+          
+              <img src="./images/img3.jpg" alt="" width="150px" height="150px" id="img3">
+              <p id = 'img3_p'>img3</p>
+
+        </div>
+      
+      </div>
     </div>
     
-    <div class="banner">
-      <div class="left">
-        <ul>
-          <li>
-            <img src="./images/img1.jpg" alt="" width="150px" height="150px" id="img1">
-          </li>
-          <li>
-            <img src="./images/img2.jpg" alt="" width="150px" height="150px">
-          </li>
-          <li>
-            <img src="./images/img3.jpg" alt="" width="150px" height="150px">
-          </li>
-        </ul>
-      </div>
-      <div class="right">
-        <ul>
-          <li>
-            <img src="./images/img4.jpg" alt="" >
-          </li>
-          <li>
-            <img src="./images/img5.jpg" alt="" >
-          </li>
-          <li>
-            <img src="./images/img6.jpg" alt="" >
-          </li>
-        </ul>
-      </div>
-    </div> <!--end of banner-->
-  </div> <!--end of panel-->
   
-  <br>
   
-  <div class="btns">
-    <p id = 'notification'></p>
-    <button type="button" id="b1">Draw</button>
-    <button type="button" id="b2">Select</button>
-    <button type="button" id="b3">Selected Send</button>
-    <button type="button" id="b4">Default Sent</button>
-    <button type="button" id="b5">Undo</button>
-    <button type="button" id="b6">Click six!</button>
-  </div>
- 
- 
+    <div class="w">
+      <div class="btns">
+        <p id = 'notification'>notification bar</p>
+        <button type="button" id="b1">Draw</button>
+        <button type="button" id="b2">Select</button>
+        <button type="button" id="b3">Selected Send</button>
+        <button type="button" id="b4">Default Sent</button>
+        <button type="button" id="b5">Undo</button>
+        <button type="button" id="b6">Save & Export</button>
+      </div>
+    </div>
 </body>
 <!-- <script src="canvas.js"></script> -->
-
 
 </html>

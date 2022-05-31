@@ -7,7 +7,7 @@ function send_Json_to_Server_ver2(event,arg){
     const request1 = net.request({
         method: 'POST',
         protocol: 'http:',
-        hostname: '110.40.209.218',
+        hostname: '127.0.0.1',
         port: 6199,
         path: '/version2',
         headers: {

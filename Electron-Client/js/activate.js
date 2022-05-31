@@ -20,6 +20,27 @@ function activate_button(){
         theCanvas.height = theCanvas.height;
         redraw(-1);
     }
+
+    var b6 = document.getElementById("b6");
+    b6.onclick = function(){
+        appConsole.log('save & export!');
+        activate_python_save();
+    }
+
+    var black = document.getElementById("black");
+    black.onclick = function(){
+        appConsole.log('black');
+        color = "black"}
+
+    var red = document.getElementById("red");
+    red.onclick = function(){
+        appConsole.log('red');
+        color = "red"}
+
+    var green = document.getElementById("green");
+    green.onclick = function(){
+        appConsole.log('green');
+        color = "green"}
 }
 
 
