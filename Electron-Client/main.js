@@ -1,6 +1,7 @@
 const { app, BrowserWindow,ipcMain } = require('electron')
 const send_Json_to_Server_ver1 = require('./send_Json_ver1')
 const send_Json_to_Server_ver2 = require('./send_Json_ver2')
+const send_Json_to_Server_word = require('./send_Json_wordcloud')
 
 //生成主屏幕
 let win  = null;
@@ -28,6 +29,7 @@ app.on('window-all-closed', () => {
 // 监听渲染进行发送的消息
 ipcMain.on('renderer-msg', (event, arg) => {
     arg = JSON.parse(arg)
+    console.log(arg)
     if (arg["ver"] == "#Reflash_Request"){
         console.log("reload request get")
         win.loadFile('index.html')
@@ -37,10 +39,15 @@ ipcMain.on('renderer-msg', (event, arg) => {
         console.log(arg["text"]);
         send_Json_to_Server_ver1(event,arg["text"]);
     }
-    else{
+    else if (arg["ver"] == 2){
         console.log("ver2 active");
         console.log(arg);
         send_Json_to_Server_ver2(event,arg);
+    }
+    else{
+        console.log("wordcloud request active");
+        console.log(arg);
+        send_Json_to_Server_word(event,arg);
     }
 })
 
