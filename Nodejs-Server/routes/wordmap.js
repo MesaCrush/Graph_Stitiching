@@ -5,7 +5,7 @@ var route = express.Router()
 route.post('/',(req,res) =>{
     console.log("收到post",req.body);
     const spawn = require('child_process').spawn;
-    const py = spawn('python', ['./python/wordmap.py',req.body["text"]]);
+    const py = spawn('python', ['./python/wordcloud.py',req.body["text"]]);
     let output= "";
     let errormes = "";
     py.stdout.on("data", (data) => {

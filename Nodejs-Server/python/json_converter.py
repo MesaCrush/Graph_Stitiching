@@ -5,7 +5,10 @@ from converter import line_spliter_horizon, line_spliter_vertical
 
 # read ndjson lines
 def json_converter(preprocess_drawing,x_target1 = 85,x_target2 = 170 ,y_target1 = None,y_target2 = None):
-
+    x_target1 = round(x_target1,2)
+    x_target2 = round(x_target2,2)
+    y_target1 = round(y_target1,2)
+    y_target2 = round(y_target2,2)
     x_spacing,y_spacing = get_spacing(preprocess_drawing)
 
     new_drawing = recenter(preprocess_drawing,x_spacing,y_spacing)

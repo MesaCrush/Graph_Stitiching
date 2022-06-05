@@ -1,15 +1,16 @@
 import random
 import json
 import sys
+import os
 file_path = 'word_map.json'
 
 words = ['aircraft carrier', 'airplane', 'alarm clock', 'ambulance', 'ant', 'anvil', 'apple', 'arm', 'axe',
          'backpack', 'banana', 'bandage', 'barn', 'baseball', 'baseball bat', 'basket', 'basketball', 'bat', 'bathtub',
          'beach']
-path = '/Denis/GraphS/Graph_Stitiching/Nodejs-Server/python'
+path = os.path.dirname(os.path.realpath(__file__))
 
 def word_cloud(word):
-    with open(path+'/word_map.json', 'r') as f:
+    with open(path+'/../python/word_map.json', 'r') as f:
         relation_map = json.load(f)
     n = len(words)
     ans = []
@@ -55,6 +56,3 @@ def combine(sentence):
 
 
 
-
-
-combine(str(sys.argv[1]))

@@ -11,7 +11,7 @@ route.post('/',(req,res) =>{
     });
     
     const spawn = require('child_process').spawn;
-    const py = spawn('python3', ['./python/ver2.py']);
+    const py = spawn('python', ['./python/ver2.py']);
     let output= "";
     let errormes = "";
     py.stdout.on("data", (data) => {
