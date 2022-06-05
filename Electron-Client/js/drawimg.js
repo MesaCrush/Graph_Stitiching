@@ -5,7 +5,7 @@ function read_return_strokes(index){
     return_data = fs.readFileSync('Json/Recieve.json',"utf8");   
     return_data = JSON.parse(return_data)
     var data_key = "img".concat(index.toString())
-    appConsole.log(return_data)
+    appConsole.log(data_key)
     return_data = return_data[data_key]
     appConsole.log(return_data)  
     for (let i = 0, len = return_data.length; i < len; i++){

@@ -2,8 +2,9 @@ var nodeConsole = require('console');
 const { app } = require('electron');
 var appConsole = new nodeConsole.Console(process.stdout, process.stderr);
 const strokes = [];
+const layerStrokes = [];
 const selected_line = [];
-var color = "red";
+var color = "black";
 isAllowDraw = true;
 
 
@@ -12,8 +13,8 @@ const windowToCanvas = (canvas, x, y) => {
     let rect = canvas.getBoundingClientRect()
     //x和y参数分别传入的是鼠标距离窗口的坐标，然后减去canvas距离窗口左边和顶部的距离。
     return {
-        x: x - rect.left * (canvas.width/rect.width),
-        y: y - rect.top * (canvas.height/rect.height)
+        x: x - 10 - rect.left * (canvas.width/rect.width),
+        y: y - 10 - rect.top * (canvas.height/rect.height)
     }
 }
 

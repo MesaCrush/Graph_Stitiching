@@ -1,6 +1,8 @@
+import os
+
 def json_data_convert(output_file):
-    path = "F:/Denis/GraphS/Graph_Stitiching/Electron-Client/Json"
-    filename = path + "/Curr_Stroke.json"
+    path = os.path.dirname(os.path.realpath(__file__))
+    filename = path + "../Json/Curr_Stroke.json"
     my_open= open(filename,'r')
     infor = my_open.readlines()
     my_open.close()
@@ -17,16 +19,27 @@ def json_data_convert(output_file):
         str_list.append(float(data2[:comma_index]))
         data2 = data2[comma_index+1:]
     index = 0
+    last_dim = 0
     while index != len(str_list):
         my_list = ''
-        my_list += str(round(str_list[index]/255,5))
-        my_list += ','
-        my_list += str(round(str_list[index+1]/255,5))
-        my_list += ','
-        my_list += '1,0'
-        my_write.write(str(my_list) + '\n')
-        index += 2
+        new_dim = int(str_list[index]/255)
+        if last_dim == new_dim:
+            my_list += str(str_list[index]/255)
+            my_list += ','
+            my_list += str(str_list[index+1]/255)
+            last_dim = int(str_list[index+1]/255)
+            my_list += ','
+            my_list += '1,0'
+            my_write.write(str(my_list) + '\n')
+            index += 2
+        else:
+            my_list += str(str_list[index]/255)
+            my_list += ','
+            my_list += str(str_list[index+1]/255)
+            last_dim = int(str_list[index+1]/255)
+            my_list += ','
+            my_list += '-1,0'
+            my_write.write(str(my_list) + '\n')
+            index += 2
     return
-
-
 json_data_convert('test_file.txt')

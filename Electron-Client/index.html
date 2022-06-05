@@ -11,7 +11,9 @@
     <script src="js/connect.js"></script>
     <script src="js/select.js"></script>
     <script src="js/drawimg.js"></script>
+    <script src="js/save_layer.js"></script>
     <script src="js/save.js"></script>
+    <script src="js/wordsend.js"></script>
     <script src="js/activate.js"></script>
   </head>
 
@@ -19,8 +21,22 @@
     <div class="w">
 
       <div class="banner">
-        <canvas id="theCanvas" width="510" height="510"></canvas>
+        <div class="save" id="saved_layer">
+          <img src="./images/save1.jpg" alt="" width="150px" height="150px" id="slayer1">
+          <p id = "blayer1" class = "p1">click to save layer1</p>
+        
+          <img src="./images/save2.jpg" alt="" width="150px" height="150px" id="slayer2">
+          <p id = "blayer2" class = "p1">click to save layer2</p>
+      
+          <img src="./images/save3.jpg" alt="" width="150px" height="150px" id="slayer3">
+          <p id = "blayer3" class = "p1">click to save layer3</p>
 
+        </div>
+
+
+        <canvas id="theCanvas" width="510" height="510"></canvas>
+        
+        <!-- 
         <div class="dropdown">
           <button class="dropbtn">Color</button>
           <div class="dropdown-content">
@@ -29,30 +45,31 @@
             <button id = "green">green</button>
           </div>
         </div>
+         -->
 
         <div class="left" id="leftimg">
           
               <img src="./images/img4.jpg" alt="" width="150px" height="150px" id="img4">
-              <p id = 'img4_p'>img4</p>
+              <p class = "p1" id = 'img4_p'>img4</p>
             
               <img src="./images/img5.jpg" alt="" width="150px" height="150px" id="img5">
-              <p id = 'img5_p'>img5</p>
+              <p class = "p1" id = 'img5_p'>img5</p>
           
               <img src="./images/img6.jpg" alt="" width="150px" height="150px" id="img6">
-              <p id = 'img6_p'>img6</p>
+              <p class = "p1" id = 'img6_p'>img6</p>
 
         </div>
 
         <div class="right"  id="rightimg">
         
               <img src="./images/img1.jpg" alt="" width="150px" height="150px" id="img1">
-              <p id = 'img1_p'>img1</p>
+              <p class = "p1" id = 'img1_p'>img1</p>
           
               <img src="./images/img2.jpg" alt="" width="150px" height="150px" id="img2">
-              <p id = 'img2_p'>img2</p>
+              <p class = "p1" id = 'img2_p'>img2</p>
           
               <img src="./images/img3.jpg" alt="" width="150px" height="150px" id="img3">
-              <p id = 'img3_p'>img3</p>
+              <p class = "p1" id = 'img3_p'>img3</p>
 
         </div>
       
@@ -62,8 +79,13 @@
   
   
     <div class="w">
+      
       <div class="btns">
-        <p id = 'notification'>notification bar</p>
+        <label for="wordcloud">Enter sentense to update wordcloud:</label>
+        <input type="text" id="wordcloud_s" name="wordcloud_s">
+        <input type="button" id="wordcloud_v" value="verify">
+        <input type="button" id="wordcloud_b" value="Submit">
+        <h4 id = 'notification'> notification bar</h4>
         <button type="button" id="b1">Draw</button>
         <button type="button" id="b2">Select</button>
         <button type="button" id="b3">Selected Send</button>

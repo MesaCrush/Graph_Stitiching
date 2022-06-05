@@ -1,8 +1,9 @@
 
 const { ipcRenderer } = require('electron');
 
-function activate_python_main(){
+function activate_python_select(){
     //调用python
+    appConsole.log("active python");
     var path = require('path');
     var pypath = path.join(__dirname,'python/test-client.py')
     const spawn = require('child_process').spawn;
@@ -18,6 +19,8 @@ function activate_python_main(){
         appConsole.log(output);
     });
 }
+
+
 
 function save_strokes(){
     var fs = require('fs');
@@ -40,7 +43,8 @@ function sentinfo(ver){
             }
             else{
                 document.getElementById("notification").innerHTML="Successfully generated, Wait for 1 sec and Command + R to show"
-                activate_python_main()
+                activate_python_select()
+                
             }
             
         })
