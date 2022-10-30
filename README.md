@@ -1,3 +1,5 @@
+Hello~ This is our capstone project of UOA which is an AI painting platfrom could collerative with human. Hope you enjoy it!
+
 # Graph_Stitiching
 
 
